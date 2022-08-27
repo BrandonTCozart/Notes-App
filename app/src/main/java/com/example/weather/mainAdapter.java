@@ -28,7 +28,7 @@ public class mainAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return 4;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class mainAdapter extends BaseAdapter {
         ImageView imageView = view.findViewById(R.id.grid_image);
         TextView textview = view.findViewById(R.id.note_name);
 
-        imageView.setImageResource(i);
+        //imageView.setImageResource(i);
         textview.setText(noteName);
 
         return view;
