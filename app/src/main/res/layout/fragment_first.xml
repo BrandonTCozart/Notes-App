@@ -11,27 +11,28 @@
         android:layout_width="385dp"
         android:layout_height="169dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter Note Text"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNoteTitle"
+        app:layout_constraintVertical_bias="0.019" />
 
     <EditText
         android:id="@+id/editTextNoteTitle"
         android:layout_width="322dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Note Title"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNoteText"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
         android:id="@+id/buttonDone"
@@ -49,9 +50,10 @@
         android:id="@+id/listView"
         android:layout_width="405dp"
         android:layout_height="471dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNoteText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

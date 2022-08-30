@@ -73,7 +73,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String noteDateCreated = cursor.getString(2);
                 String noteImage = cursor.getString(3);
 
-                noteClass newNote = new noteClass(noteText, noteTitle, noteDateCreated, noteImage);
+                //noteClass newNote = new noteClass(noteText, noteTitle, noteDateCreated, noteImage);
+                noteClass newNote = new noteClass(""+noteTitle, ""+noteDateCreated);
+
                 returnList.add(newNote);
             } while (cursor.moveToNext());
 

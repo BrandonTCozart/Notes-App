@@ -51,7 +51,9 @@ public class FirstFragment extends Fragment {
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
         List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
 
-        ArrayAdapter noteArrayAdapter = new ArrayAdapter<noteClass>(getContext(), android.R.layout.simple_list_item_1, allNotes);
+        //ArrayAdapter noteArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, allNotes);
+        noteAdapter noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+
         binding.listView.setAdapter(noteArrayAdapter);
         //when the screen comes up the list of notes auto comes up //
 
@@ -65,15 +67,16 @@ public class FirstFragment extends Fragment {
                 tempImage = "";
 
                 try {
+                    //newNote = new noteClass(noteText, title, date, tempImage);
                     newNote = new noteClass(noteText, title, date, tempImage);
-                    Toast.makeText(getContext(), newNote.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), newNote.getNoteText(), Toast.LENGTH_SHORT).show();
 
                 }catch (Exception e){
                     Toast.makeText(getContext(), "Error creating note", Toast.LENGTH_SHORT).show();
                     newNote = new noteClass(noteText, title, date, tempImage);
                 }
 
-                boolean b = dataBaseHelper.addOne(newNote);
+                dataBaseHelper.addOne(newNote);
 
                 /*
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());

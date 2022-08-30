@@ -21,6 +21,11 @@ public class noteClass {
         this.imageNote = imageNote;
     }
 
+    public noteClass(String noteTitle, String noteCreationDate) {
+        this.noteTitle = noteTitle;
+        this.noteCreationDate = noteCreationDate;
+    }
+
     public String getImageNote() {
         return imageNote;
     }
