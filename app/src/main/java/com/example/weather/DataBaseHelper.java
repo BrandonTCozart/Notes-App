@@ -81,13 +81,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         }else{
             //failed
-
         }
+
 
         cursor.close();
         db.close();
         return returnList;
     }
+
+
+    public void changeNoteInfo(String newTitle, String newText, String oldTitle){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE " + NOTE_TABLE + " SET " + NOTE_TITLE + " = '" + newTitle +"' WHERE "
+                + NOTE_TITLE + " = '" + oldTitle + "'" ;
+
+        db.execSQL(query);
+
+
+    }
+
 
 
 

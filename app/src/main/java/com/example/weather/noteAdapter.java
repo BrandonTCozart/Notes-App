@@ -24,12 +24,17 @@ public class noteAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return notes.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return notes.get(i);
+        if(notes.isEmpty()){
+            return null;
+        }else{
+            return notes.get(i);
+        }
+
     }
 
     @Override
@@ -48,8 +53,17 @@ public class noteAdapter extends BaseAdapter {
 
         noteClass note = (noteClass) this.getItem(i);
 
-        noteName.setText(note.getNoteTitle());
-        noteDate.setText(note.getNoteCreationDate());
+        if(notes.isEmpty()){
+            noteName.setText("Empty");
+        }else{
+            noteName.setText(note.getNoteTitle());
+        }
+
+        if(notes.isEmpty()){
+            noteDate.setText("Empty");
+        }else{
+            noteDate.setText(note.getNoteCreationDate());
+        }
         return v;
     }
 }

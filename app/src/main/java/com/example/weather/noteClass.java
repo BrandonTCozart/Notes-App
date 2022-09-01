@@ -8,6 +8,8 @@ public class noteClass {
     String noteCreationDate;
     String imageNote; //refer to address in gallery
 
+    int Id;
+
     public noteClass(String noteText, String noteTitle, String noteCreationDate) {
         this.noteText = noteText;
         this.noteTitle = noteTitle;
@@ -57,4 +59,5 @@ public class noteClass {
     public void setNoteCreationDate(String noteCreationDate) {
         this.noteCreationDate = noteCreationDate;
     }
+
 }
