@@ -74,7 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String noteImage = cursor.getString(3);
 
                 //noteClass newNote = new noteClass(noteText, noteTitle, noteDateCreated, noteImage);
-                noteClass newNote = new noteClass(""+noteTitle, ""+noteDateCreated);
+                noteClass newNote = new noteClass(""+noteText, ""+noteTitle, ""+noteDateCreated, ""+noteImage);
 
                 returnList.add(newNote);
             } while (cursor.moveToNext());
@@ -96,6 +96,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String query = "UPDATE " + NOTE_TABLE + " SET " + NOTE_TITLE + " = '" + newTitle +"' WHERE "
                 + NOTE_TITLE + " = '" + oldTitle + "'" ;
 
+        String query2 = "UPDATE " + NOTE_TABLE + " SET " + NOTE_TEXT + " = '" + newText + "' WHERE "
+                + NOTE_TITLE + " = '" + oldTitle + "'";
+
+        db.execSQL(query2);
         db.execSQL(query);
 
 

@@ -73,8 +73,7 @@ public class FirstFragment extends Fragment {
 
                     dataBaseHelper.changeNoteInfo(title, noteText, oldTitle);
 
-                    //List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
-                    //noteAdapter noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+
                     binding.listView.setAdapter(noteArrayAdapter);
 
                     binding.editTextNoteText.setText("");
@@ -128,7 +127,6 @@ public class FirstFragment extends Fragment {
                             dataBaseHelper.addOne(newNote);
 
 
-                            //noteAdapter noteArrayAdapter = new noteAdapter(getContext(),allNotes);
                             binding.listView.setAdapter(noteArrayAdapter);
 
                             binding.editTextNoteText.setText("");
@@ -140,6 +138,10 @@ public class FirstFragment extends Fragment {
 
                     }
                 }
+
+                allNotes = dataBaseHelper.getAllNotesFromLocalDB();
+                noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+                binding.listView.setAdapter(noteArrayAdapter);
 
 
 
@@ -155,6 +157,7 @@ public class FirstFragment extends Fragment {
             public void onClick(View view) {
                 binding.editTextNoteTitle.setText("");
                 binding.editTextNoteText.setText("");
+                editing = 0;
             }
         });
 
@@ -163,12 +166,12 @@ public class FirstFragment extends Fragment {
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
                editing = 1;
                noteEditingNumber = i;
 
                String title = allNotes.get(i).getNoteTitle();
                String text = allNotes.get(i).getNoteText();
-               String Date = allNotes.get(i).getNoteCreationDate();
 
                binding.editTextNoteTitle.setText(title);
                binding.editTextNoteText.setText(text);

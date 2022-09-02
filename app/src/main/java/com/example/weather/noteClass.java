@@ -10,11 +10,6 @@ public class noteClass {
 
     int Id;
 
-    public noteClass(String noteText, String noteTitle, String noteCreationDate) {
-        this.noteText = noteText;
-        this.noteTitle = noteTitle;
-        this.noteCreationDate = noteCreationDate;
-    }
 
     public noteClass(String noteText, String noteTitle, String noteCreationDate, String imageNote) {
         this.noteText = noteText;
