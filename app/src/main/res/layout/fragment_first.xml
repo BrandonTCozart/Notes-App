@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#71ACAF"
     tools:context=".FirstFragment">
 
     <EditText
@@ -11,7 +12,7 @@
         android:layout_width="392dp"
         android:layout_height="146dp"
         android:ems="10"
-        android:hint="Enter Note Text"
+        android:hint="Note Text"
         android:layout_marginTop="5dp"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
