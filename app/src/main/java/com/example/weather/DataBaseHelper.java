@@ -73,7 +73,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String noteDateCreated = cursor.getString(2);
                 String noteImage = cursor.getString(3);
 
-                //noteClass newNote = new noteClass(noteText, noteTitle, noteDateCreated, noteImage);
                 noteClass newNote = new noteClass(""+noteText, ""+noteTitle, ""+noteDateCreated, ""+noteImage);
 
                 returnList.add(newNote);
@@ -101,9 +100,47 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(query2);
         db.execSQL(query);
+    }
+
+
+    public ArrayList<String> getTitles(){
+        ArrayList<String> titles = new ArrayList();
+
+        String queryString = "SELECT " + NOTE_TITLE + " FROM " + NOTE_TABLE;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                String noteTitle = cursor.getString(0);
+
+                titles.add(noteTitle);
+
+            } while (cursor.moveToNext());
+
+        }else{
+            //failed
+        }
+
+        cursor.close();
+        db.close();
+        return  titles;
+
+    }
+
+    public void deleteNote(String noteTitle){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        db.delete(NOTE_TABLE, NOTE_TITLE + "= '" + noteTitle + "'", null );
 
 
     }
+
+
 
 
 

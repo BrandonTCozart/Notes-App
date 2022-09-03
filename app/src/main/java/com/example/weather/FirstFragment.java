@@ -29,6 +29,10 @@ public class FirstFragment extends Fragment {
     Image image; // need to point to image
     String tempImage;
 
+    List<noteClass> allNotes;
+    noteAdapter noteArrayAdapter;
+    DataBaseHelper dataBaseHelper;
+
     int editing = 0;
     int noteEditingNumber = 0;
 
@@ -44,19 +48,21 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
-        List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
+        dataBaseHelper = new DataBaseHelper(getContext());
+        allNotes = dataBaseHelper.getAllNotesFromLocalDB();
 
-        noteAdapter noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+        noteArrayAdapter = new noteAdapter(getContext(),allNotes);
         binding.listView.setAdapter(noteArrayAdapter);
+
+        binding.buttonDelete.setVisibility(View.INVISIBLE);
 
         binding.buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext());
-                List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
+                allNotes = dataBaseHelper.getAllNotesFromLocalDB();
 
-                noteAdapter noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+                noteArrayAdapter = new noteAdapter(getContext(),allNotes);
                 binding.listView.setAdapter(noteArrayAdapter);
 
                 title = binding.editTextNoteTitle.getText().toString();
@@ -83,6 +89,8 @@ public class FirstFragment extends Fragment {
 
                     editing = 0;
 
+                    binding.buttonDelete.setVisibility(View.INVISIBLE);
+
 
 
                 }else{
@@ -92,40 +100,25 @@ public class FirstFragment extends Fragment {
 
                     }else{
 
+                        // Make sure the Name is different //
 
-                        ArrayList<String> titles = new ArrayList<>();
-                        //List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
-
-                        if(allNotes.isEmpty()){
-                            //Dont
-                        }else{
-
-                            for(int i = 1; i > allNotes.size(); i++){
-                                titles.add(allNotes.get(i).getNoteTitle());
-                            }
-
-                        }
-
-
-
-                        if(titles.contains(title)){
+                        if(dataBaseHelper.getTitles().contains(title)){
 
                             Toast.makeText(getContext(), "Title Must Be Unique", Toast.LENGTH_SHORT).show();
+
+                            // Make sure the Name is different //
 
                         }else{
 
                             try {
                                 newNote = new noteClass(noteText, title, date, tempImage);
-                                Toast.makeText(getContext(), newNote.getNoteText(), Toast.LENGTH_SHORT).show();
 
                             }catch (Exception e){
-                                Toast.makeText(getContext(), "Error creating note", Toast.LENGTH_SHORT).show();
                                 newNote = new noteClass(noteText, title, date, tempImage);
+
                             }
 
-
                             dataBaseHelper.addOne(newNote);
-
 
                             binding.listView.setAdapter(noteArrayAdapter);
 
@@ -134,18 +127,12 @@ public class FirstFragment extends Fragment {
 
                         }
 
-
-
                     }
                 }
 
                 allNotes = dataBaseHelper.getAllNotesFromLocalDB();
                 noteArrayAdapter = new noteAdapter(getContext(),allNotes);
                 binding.listView.setAdapter(noteArrayAdapter);
-
-
-
-
 
             }
         });
@@ -158,6 +145,8 @@ public class FirstFragment extends Fragment {
                 binding.editTextNoteTitle.setText("");
                 binding.editTextNoteText.setText("");
                 editing = 0;
+
+                binding.buttonDelete.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -166,7 +155,7 @@ public class FirstFragment extends Fragment {
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               List<noteClass> allNotes = dataBaseHelper.getAllNotesFromLocalDB();
+               allNotes = dataBaseHelper.getAllNotesFromLocalDB();
                editing = 1;
                noteEditingNumber = i;
 
@@ -176,6 +165,28 @@ public class FirstFragment extends Fragment {
                binding.editTextNoteTitle.setText(title);
                binding.editTextNoteText.setText(text);
 
+                binding.buttonDelete.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        binding.buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dataBaseHelper.deleteNote(binding.editTextNoteTitle.getText().toString());
+
+                allNotes = dataBaseHelper.getAllNotesFromLocalDB();
+
+                noteArrayAdapter = new noteAdapter(getContext(),allNotes);
+                binding.listView.setAdapter(noteArrayAdapter);
+
+                binding.editTextNoteText.setText("");
+                binding.editTextNoteTitle.setText("");
+
+                editing = 0;
+
+                binding.buttonDelete.setVisibility(View.INVISIBLE);
             }
         });
 
