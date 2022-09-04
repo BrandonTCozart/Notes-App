@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/drawable/button.xml" value="0.2255" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/drawable/buttonclear.xml" value="0.2545" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/drawable/buttondelete.xml" value="0.2555" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/drawable/eddittexttitledrawable.xml" value="0.2555" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/layout/adapter_view_layout.xml" value="0.264" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/brand/AndroidStudioProjects/Starter-app/app/src/main/res/layout/gridviewlayout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/brand/AndroidStudioProjects/weatherapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.254" />
         <entry key="..\:/Users/brand/AndroidStudioProjects/weatherapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.254" />
         <entry key="..\:/Users/brand/AndroidStudioProjects/weatherapp/app/src/main/res/layout/fragment_first.xml" value="0.25" />
