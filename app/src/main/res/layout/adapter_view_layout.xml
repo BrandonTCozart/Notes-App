@@ -18,14 +18,14 @@
 
     <TextView
         android:id="@+id/textViewNoteDate"
-        android:layout_width="179dp"
-        android:layout_height="26dp"
+        android:layout_width="138dp"
+        android:layout_height="29dp"
         android:layout_marginTop="16dp"
+        android:textColor="#dcdcdc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#dcdcdc"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/divider"
