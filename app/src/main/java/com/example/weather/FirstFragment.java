@@ -36,6 +36,8 @@ public class FirstFragment extends Fragment {
     int editing = 0;
     int noteEditingNumber = 0;
 
+    int joeyMode = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -134,6 +136,8 @@ public class FirstFragment extends Fragment {
                 noteArrayAdapter = new noteAdapter(getContext(),allNotes);
                 binding.listView.setAdapter(noteArrayAdapter);
 
+                joeyMode = 0;
+
             }
         });
 
@@ -145,6 +149,13 @@ public class FirstFragment extends Fragment {
                 binding.editTextNoteTitle.setText("");
                 binding.editTextNoteText.setText("");
                 editing = 0;
+
+                if(joeyMode == 15){
+                    Toast.makeText(getContext(), "Whats Good Cuz", Toast.LENGTH_SHORT).show();
+                    joeyMode = 0;
+                }
+
+                joeyMode = joeyMode + 1;
 
                 binding.buttonDelete.setVisibility(View.INVISIBLE);
             }
@@ -166,6 +177,8 @@ public class FirstFragment extends Fragment {
                binding.editTextNoteText.setText(text);
 
                 binding.buttonDelete.setVisibility(View.VISIBLE);
+
+                joeyMode = 0;
 
             }
         });
