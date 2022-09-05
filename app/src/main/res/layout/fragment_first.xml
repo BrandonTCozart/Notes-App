@@ -9,12 +9,12 @@
 
     <EditText
         android:id="@+id/editTextNoteText"
-        android:layout_width="393dp"
+        android:layout_width="385dp"
         android:layout_height="146dp"
         android:ems="10"
         android:hint=" Note Text"
         android:textColorHint="#ababab"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.416"
@@ -25,19 +25,19 @@
 
     <EditText
         android:id="@+id/editTextNoteTitle"
-        android:layout_width="393dp"
-        android:layout_height="56dp"
+        android:layout_width="385dp"
+        android:layout_height="52dp"
         android:layout_marginTop="70dp"
+        android:background="@drawable/eddittexttitledrawable"
         android:ems="10"
         android:hint=" Note Title"
-        android:textColorHint="#ababab"
         android:inputType="textPersonName"
+        android:textColor="#dcdcdc"
+        android:textColorHint="#ababab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/eddittexttitledrawable"
-        android:textColor="#dcdcdc"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonDone"
@@ -72,7 +72,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.007"
-        android:background="@drawable/buttonclear"/>
+        android:background="@drawable/buttonclear"
+        android:textColor="#000000"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonDelete"
