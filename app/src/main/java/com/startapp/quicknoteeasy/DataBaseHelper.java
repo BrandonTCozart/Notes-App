@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.startapp.quicknoteeasy;
 
 import android.content.ContentValues;
 import android.content.Context;

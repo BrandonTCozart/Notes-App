@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.startapp.quicknoteeasy;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -11,10 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.weather.databinding.FragmentFirstBinding;
+import com.startapp.quicknoteeasy.databinding.FragmentFirstBinding;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;

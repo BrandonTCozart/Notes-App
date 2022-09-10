@@ -1,4 +1,4 @@
-package com.example.weather;
+package com.startapp.quicknoteeasy;
 
 import org.junit.Test;
 

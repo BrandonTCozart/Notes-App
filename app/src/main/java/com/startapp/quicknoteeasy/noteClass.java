@@ -1,6 +1,4 @@
-package com.example.weather;
-
-import android.media.Image;
+package com.startapp.quicknoteeasy;
 
 public class noteClass {
     String noteText;
