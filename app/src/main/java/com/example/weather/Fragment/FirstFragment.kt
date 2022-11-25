@@ -30,6 +30,7 @@ class FirstFragment : Fragment() {
     var dataBaseHelper: DataBaseHelper? = null
     var editing = 0
     var noteEditingNumber = 0
+    var cuz = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -102,10 +103,19 @@ class FirstFragment : Fragment() {
         }
 
         binding!!.buttonCancel.setOnClickListener {
-            binding!!.editTextNoteTitle.setText("")
-            binding!!.editTextNoteText.setText("")
-            editing = 0
-            binding!!.buttonDelete.visibility = View.INVISIBLE
+            if(binding!!.editTextNoteTitle.text.isBlank() && binding!!.editTextNoteText.text.isBlank()){
+                cuz = cuz + 1
+                if(cuz == 15){
+                    Toast.makeText(context, "Whats Good Cuz", Toast.LENGTH_SHORT).show()
+                    cuz = 0
+                }
+            }else{
+                binding!!.editTextNoteTitle.setText("")
+                binding!!.editTextNoteText.setText("")
+                editing = 0
+                binding!!.buttonDelete.visibility = View.INVISIBLE
+            }
+
         }
 
         binding!!.listView.onItemClickListener = OnItemClickListener { adapterView, view, i, l ->
