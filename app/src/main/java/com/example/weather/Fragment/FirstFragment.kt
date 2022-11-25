@@ -53,7 +53,7 @@ class FirstFragment : Fragment() {
 
         binding!!.buttonDone.setOnClickListener {
             val dataBaseHelper = DataBaseHelper(context)
-            allNotes = dataBaseHelper.allNotesFromLocalDB
+            allNotes = dataBaseHelper.allNotesFromLocalDB.asReversed()
             noteArrayAdapter = noteAdapter(requireContext(), allNotes!!)
             binding!!.listView.adapter = noteArrayAdapter
             title = binding!!.editTextNoteTitle.text.toString()
@@ -96,7 +96,7 @@ class FirstFragment : Fragment() {
                     }
                 }
             }
-            allNotes = dataBaseHelper.allNotesFromLocalDB
+            allNotes = dataBaseHelper.allNotesFromLocalDB.asReversed()
             noteArrayAdapter = noteAdapter(requireContext(), allNotes!!)
             binding!!.listView.adapter = noteArrayAdapter
         }
@@ -109,7 +109,7 @@ class FirstFragment : Fragment() {
         }
 
         binding!!.listView.onItemClickListener = OnItemClickListener { adapterView, view, i, l ->
-            allNotes = dataBaseHelper!!.allNotesFromLocalDB
+            allNotes = dataBaseHelper!!.allNotesFromLocalDB.asReversed()
             editing = 1
             noteEditingNumber = i
             val title = allNotes!!.get(i).noteTitle
@@ -122,7 +122,7 @@ class FirstFragment : Fragment() {
 
         binding!!.buttonDelete.setOnClickListener {
             dataBaseHelper!!.deleteNote(binding!!.editTextNoteTitle.text.toString())
-            allNotes = dataBaseHelper!!.allNotesFromLocalDB
+            allNotes = dataBaseHelper!!.allNotesFromLocalDB.asReversed()
             noteArrayAdapter = noteAdapter(requireContext(), allNotes!!)
             binding!!.listView.adapter = noteArrayAdapter
             binding!!.editTextNoteText.setText("")
